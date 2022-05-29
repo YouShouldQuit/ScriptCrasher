@@ -1,4 +1,8 @@
-
+spawn(function() --anti afk script
+for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
+v:Disable()
+end
+end)
 
 
 
