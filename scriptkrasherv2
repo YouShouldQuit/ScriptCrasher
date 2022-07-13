@@ -10,7 +10,20 @@ print("Auto Save Setting Script")
 
 
 
-
+local HWID_Whitelist = loadstring(game:HttpGet("https://raw.githubusercontent.com/myladoisbig/muladoisreallybig/main/wirelist", true))()
+if HWID_Whitelist[game:GetService("RbxAnalyticsService"):GetClientId()] then
+    print("Whitelisted")
+else
+    spawn(function()
+        getgenv().notify = true
+        while notify do wait()
+            game.Players.LocalPlayer.PlayerGui.Gui.Home.MSG.Text = "Please contact D£VIL#9698 to whitelist yourself."
+            wait(1)
+            game.Players.LocalPlayer.PlayerGui.Gui.Home.MSG.Text = ""
+            wait(1)
+        end
+    end)
+end
 
 
 
