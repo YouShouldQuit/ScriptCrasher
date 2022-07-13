@@ -9,7 +9,7 @@ print("Auto Save Setting Script")
 
 
 
-
+spawn(function()
 local HWID_Whitelist = loadstring(game:HttpGet("https://raw.githubusercontent.com/myladoisbig/muladoisreallybig/main/wirelist", true))()
 if HWID_Whitelist[game:GetService("RbxAnalyticsService"):GetClientId()] then
     print("Whitelisted")
@@ -24,10 +24,10 @@ else
         end
     end)
 end
+end)
 
 
-
-
+spawn(function()
 
 
 
@@ -628,3 +628,4 @@ request(abcdef)
  
  
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+end)
